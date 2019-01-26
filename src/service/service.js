@@ -2,7 +2,13 @@ class TrackerService {
   constructor(opts = {}) {
     if (opts.trackers) {
       this.trackers = Object.keys(opts.trackers)
-        .reduce((acc, key) => ({ ...acc, [key]: new opts.trackers[key](this) }), {});
+        .reduce((acc, key) => {
+          let instance = typeof opts.trackers[key] === 'function'
+            ? new opts.trackers[key](this)
+            : new opts.trackers[key].tracker(this, opts.trackers[key].opts || {})
+
+          return { ...acc, [key]: instance };
+        }, {});
     }
   }
 
