@@ -16,6 +16,17 @@ class HandlerA {
       this.tracker.doLink
     );
   }
+
+  handleEventAA(data) {
+    return Utils.pipe(
+      { event: 'myAAEvent' },
+      this.tracker.doSetup,
+      this.tracker.doAugment(data)([
+        this.tracker.augmenters.addQuux,
+      ]),
+      this.tracker.doLink
+    );
+  }
 }
 
 module.exports = HandlerA;

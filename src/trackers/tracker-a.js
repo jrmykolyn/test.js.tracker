@@ -16,11 +16,13 @@ class TrackerA {
     this.augmenters = {
       addBar: this.addBar,
       addBaz: this.addBaz,
+      addQuux: this.addQuux,
     };
   }
 
   init(trackers) {
     this.service.on(Events.EVENT_A, this.handlers.a.handleEventA.bind(this.handlers.a));
+    this.service.on(Events.EVENT_AA, this.handlers.a.handleEventAA.bind(this.handlers.a));
   }
 
   doSetup(data = {}) {
@@ -40,6 +42,7 @@ class TrackerA {
   }
 
   doLink(payload) {
+    console.log('__ LOGGING OUT `payload`', payload); // TEMP
     return payload;
   }
 
