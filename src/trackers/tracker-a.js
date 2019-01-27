@@ -1,7 +1,16 @@
+const { Events } = require('../events');
+
 class TrackerA {
   constructor(service, opts) {
     this.service = service;
     this.opts = opts;
+
+    // Instantiate handlers.
+    this.handlers = Object.keys(opts.handlers)
+      .reduce((acc, key) => ({
+        ...acc,
+        [key]: new opts.handlers[key](this),
+      }), {});
 
     // TEMP: Expose augmentors.
     this.augmenters = {
@@ -11,7 +20,7 @@ class TrackerA {
   }
 
   init(trackers) {
-    // TODO
+    this.service.on(Events.EVENT_A, this.handlers.a.handleEventA.bind(this.handlers.a));
   }
 
   doSetup(data = {}) {
