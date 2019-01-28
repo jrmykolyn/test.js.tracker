@@ -2,7 +2,7 @@ const { Events } = require('../events');
 
 class TrackerA {
   static get MAX_LOG_LENGTH() {
-    return 1;
+    return 10;
   }
 
   constructor(service, opts = {}) {
