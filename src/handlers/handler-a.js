@@ -13,7 +13,8 @@ class HandlerA {
         this.tracker.augmenters.addBar,
         this.tracker.augmenters.addBaz,
       ]),
-      this.tracker.doLink
+      this.tracker.doLink,
+      this.tracker.doLog
     );
   }
 
@@ -24,7 +25,8 @@ class HandlerA {
       this.tracker.doAugment(data)([
         this.tracker.augmenters.addQuux,
       ]),
-      this.tracker.doLink
+      this.tracker.doLink,
+      this.tracker.doLog
     );
   }
 }

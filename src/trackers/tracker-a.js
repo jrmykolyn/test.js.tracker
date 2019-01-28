@@ -1,7 +1,12 @@
 const { Events } = require('../events');
 
 class TrackerA {
+  static get MAX_LOG_LENGTH() {
+    return 1;
+  }
+
   constructor(service, opts) {
+    this.log = [];
     this.service = service;
     this.opts = opts;
 
@@ -18,6 +23,9 @@ class TrackerA {
       addBaz: this.addBaz,
       addQuux: this.addQuux,
     };
+
+    // Bind.
+    this.doLog = this.doLog.bind(this);
   }
 
   init(trackers) {
@@ -44,6 +52,10 @@ class TrackerA {
   doLink(payload) {
     console.log('__ LOGGING OUT `payload`', payload); // TEMP
     return payload;
+  }
+
+  doLog(payload) {
+    this.log = [payload, ...this.log].slice(0, this.opts.maxLogLength || TrackerA.MAX_LOG_LENGTH);
   }
 
   addBar(data) {
