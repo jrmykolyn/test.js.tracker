@@ -5,7 +5,7 @@ class TrackerA {
     return 1;
   }
 
-  constructor(service, opts) {
+  constructor(service, opts = {}) {
     this.log = [];
     this.service = service;
     this.opts = opts;
