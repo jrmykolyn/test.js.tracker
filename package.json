@@ -1,13 +1,13 @@
 {
-  "name": "tracker",
+  "name": "test.js.tracker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Proof of concept for a patter whereby a tracker service communicates with various tracker clients.",
   "main": "index.js",
   "scripts": {
     "test": "mocha --recursive ./test/unit/"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jesse R Mykolyn",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.2.0",
