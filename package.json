@@ -2,7 +2,7 @@
   "name": "test.js.tracker",
   "version": "1.0.0",
   "description": "Proof of concept for a patter whereby a tracker service communicates with various tracker clients.",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "mocha --recursive ./test/unit/"
   },
