@@ -41,7 +41,7 @@ class TrackerA {
   }
 
   doAugment(data) {
-    return (augmenters) => (payload) => {
+    return (augmenters = []) => (payload) => {
       return {
         ...payload,
         ...augmenters.reduce((acc, augmenter) => ({ ...acc, ...augmenter(data) }), {}),
