@@ -1,4 +1,4 @@
-const { Events } = require('../events');
+const { Events } = require('../../events');
 
 class TrackerA {
   static get MAX_LOG_LENGTH() {

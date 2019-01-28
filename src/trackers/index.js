@@ -1,5 +1,9 @@
-const TrackerA = require('./tracker-a');
+const {
+  HandlerA,
+  TrackerA
+} = require('./tracker-a');
 
 module.exports = {
+  HandlerA,
   TrackerA,
 };

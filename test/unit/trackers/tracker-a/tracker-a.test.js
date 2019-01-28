@@ -2,8 +2,8 @@ const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
 const chai = require('chai');
 
-const { TrackerA } = require('../../../src/trackers');
-const { Events } = require('../../../src/events');
+const { TrackerA } = require('../../../../src/trackers');
+const { Events } = require('../../../../src/events');
 
 const { expect } = chai;
 
