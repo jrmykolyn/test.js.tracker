@@ -11,7 +11,7 @@ class TrackerA {
     this.opts = opts;
 
     // Instantiate handlers.
-    this.handlers = Object.keys(opts.handlers)
+    this.handlers = Object.keys(opts.handlers || {})
       .reduce((acc, key) => ({
         ...acc,
         [key]: new opts.handlers[key](this),
