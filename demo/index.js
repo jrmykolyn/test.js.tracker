@@ -20,9 +20,9 @@ const trackerService = new TrackerService({
 });
 
 trackerService.init();
-trackerService.emit(Events.EVENT_A, { foo: 'bar' });
+trackerService.emit(Events.EVENT_A, { foo: 'bar', bar: 2 });
 trackerService.emit(Events.EVENT_AA, { foo: 'bar' });
-trackerService.emit(Events.EVENT_A, { foo: 'bar' });
+trackerService.emit(Events.EVENT_A, { foo: 'bar', bar: 10 });
 trackerService.emit(Events.EVENT_A, { foo: 'bar' });
 trackerService.emit(Events.EVENT_AA, { foo: 'bar' });
 trackerService.emit(Events.EVENT_AA, { foo: 'bar' });
