@@ -5,6 +5,15 @@ class TrackerA {
     return 10;
   }
 
+  get DEFAULTS() {
+    return {
+      FOO: 1,
+      BAR: 2,
+      BAZ: 3,
+      QUUX: 4,
+    };
+  }
+
   constructor(service, opts = {}) {
     this.log = [];
     this.service = service;

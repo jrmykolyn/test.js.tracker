@@ -252,6 +252,24 @@ describe('TrackerA', () => {
   });
 
   describe('Instance properties', () => {
+    let trackerA;
+
+    beforeEach(() => {
+      trackerA = new TrackerA();
+    });
+
+    describe('DEFAULTS', () => {
+      it('should be an object', () => {
+        expect(trackerA.DEFAULTS).to.be.a('object');
+      });
+
+      it('should contain defaults for: FOO; BAR; BAZ; QUUX', () => {
+        expect(trackerA.DEFAULTS.FOO).to.eq(1);
+        expect(trackerA.DEFAULTS.BAR).to.eq(2);
+        expect(trackerA.DEFAULTS.BAZ).to.eq(3);
+        expect(trackerA.DEFAULTS.QUUX).to.eq(4);
+      });
+    });
   });
 });
 
