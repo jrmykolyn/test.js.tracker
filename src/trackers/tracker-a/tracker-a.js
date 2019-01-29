@@ -28,9 +28,9 @@ class TrackerA {
 
     // TEMP: Expose augmentors.
     this.augmenters = {
-      computeBar: this.computeBar,
-      computeBaz: this.computeBaz,
-      computeQuux: this.computeQuux,
+      computeBar: this.computeBar.bind(this),
+      computeBaz: this.computeBaz.bind(this),
+      computeQuux: this.computeQuux.bind(this),
     };
 
     // Bind.
