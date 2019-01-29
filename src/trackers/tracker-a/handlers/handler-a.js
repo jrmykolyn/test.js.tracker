@@ -10,8 +10,8 @@ class HandlerA {
       { event: 'myEvent' },
       this.tracker.doSetup,
       this.tracker.doAugment(data)([
-        this.tracker.augmenters.addBar,
-        this.tracker.augmenters.addBaz,
+        this.tracker.augmenters.computeBar,
+        this.tracker.augmenters.computeBaz,
       ]),
       this.tracker.doLink,
       this.tracker.doLog
@@ -23,7 +23,7 @@ class HandlerA {
       { event: 'myAAEvent' },
       this.tracker.doSetup,
       this.tracker.doAugment(data)([
-        this.tracker.augmenters.addQuux,
+        this.tracker.augmenters.computeQuux,
       ]),
       this.tracker.doLink,
       this.tracker.doLog

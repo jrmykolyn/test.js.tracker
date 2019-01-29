@@ -43,9 +43,9 @@ describe('HandlerA', () => {
         doLink,
         doLog,
         augmenters: {
-          addBar: noop,
-          addBaz: noop,
-          addQuux: noop,
+          computeBar: noop,
+          computeBaz: noop,
+          computeQuux: noop,
         },
       });
     });
@@ -90,12 +90,12 @@ describe('HandlerA', () => {
 
       it('should invoke the function returned by `doAugment` with the correct augmenters', () => {
         const {
-          addBar,
-          addBaz,
+          computeBar,
+          computeBaz,
         } = handlerA.tracker.augmenters;
         handlerA.handleEventA();
 
-        expect(b).to.be.calledWithExactly([addBar, addBaz]);
+        expect(b).to.be.calledWithExactly([computeBar, computeBaz]);
       });
     });
 
@@ -139,11 +139,11 @@ describe('HandlerA', () => {
 
       it('should invoke the function returned by `doAugment` with the correct augmenters', () => {
         const {
-          addQuux,
+          computeQuux,
         } = handlerA.tracker.augmenters;
         handlerA.handleEventAA();
 
-        expect(b).to.be.calledWithExactly([addQuux]);
+        expect(b).to.be.calledWithExactly([computeQuux]);
       });
     });
   });

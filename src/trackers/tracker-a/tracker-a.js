@@ -19,9 +19,9 @@ class TrackerA {
 
     // TEMP: Expose augmentors.
     this.augmenters = {
-      addBar: this.addBar,
-      addBaz: this.addBaz,
-      addQuux: this.addQuux,
+      computeBar: this.computeBar,
+      computeBaz: this.computeBaz,
+      computeQuux: this.computeQuux,
     };
 
     // Bind.
@@ -58,15 +58,15 @@ class TrackerA {
     this.log = [payload, ...this.log].slice(0, this.opts.maxLogLength || TrackerA.MAX_LOG_LENGTH);
   }
 
-  addBar(data) {
+  computeBar(data) {
     return { bar: 'baz' };
   }
 
-  addBaz(data) {
+  computeBaz(data) {
     return { baz: 'quux' };
   }
 
-  addQuux(data) {
+  computeQuux(data) {
     return { quux: 'foo' };
   }
 }

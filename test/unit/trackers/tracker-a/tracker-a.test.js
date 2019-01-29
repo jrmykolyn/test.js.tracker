@@ -188,7 +188,7 @@ describe('TrackerA', () => {
     });
 
     describe('doLog()', () => {
-      it('should add the payload to the `log`', () => {
+      it('should compute the payload to the `log`', () => {
         const payload = { foo: 'bar' };
 
         trackerA.doLog(payload);
@@ -231,21 +231,21 @@ describe('TrackerA', () => {
       });
     });
 
-    describe('addBar()', () => {
+    describe('computeBar()', () => {
       it('should return an object of the form: `{ bar: "baz" }`', () => {
-        expect(trackerA.addBar()).to.eql({ bar: 'baz' });
+        expect(trackerA.computeBar()).to.eql({ bar: 'baz' });
       });
     });
 
-    describe('addBaz()', () => {
+    describe('computeBaz()', () => {
       it('should return an object of the form: `{ baz: "quux" }`', () => {
-        expect(trackerA.addBaz()).to.eql({ baz: 'quux' });
+        expect(trackerA.computeBaz()).to.eql({ baz: 'quux' });
       });
     });
 
-    describe('addQuux()', () => {
+    describe('computeQuux()', () => {
       it('should return an object of the form: `{ quux: "foo" }`', () => {
-        expect(trackerA.addQuux()).to.eql({ quux: 'foo' });
+        expect(trackerA.computeQuux()).to.eql({ quux: 'foo' });
 
       });
     });
