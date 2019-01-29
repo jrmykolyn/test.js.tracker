@@ -49,7 +49,7 @@ class TrackerA {
     };
   }
 
-  doAugment(data) {
+  doAugment(data = {}) {
     return (augmenters = []) => (payload) => {
       return {
         ...payload,
@@ -72,11 +72,11 @@ class TrackerA {
     return { bar: +data.bar ? defaultBar + (+data.bar) : defaultBar };
   }
 
-  computeBaz(data) {
+  computeBaz(data = {}) {
     return { baz: 'quux' };
   }
 
-  computeQuux(data) {
+  computeQuux(data = {}) {
     return { quux: 'foo' };
   }
 }
