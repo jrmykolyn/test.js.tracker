@@ -232,8 +232,16 @@ describe('TrackerA', () => {
     });
 
     describe('computeBar()', () => {
-      it('should return an object of the form: `{ bar: "baz" }`', () => {
-        expect(trackerA.computeBar()).to.eql({ bar: 'baz' });
+      it('should extract and apply `bar` from the data', () => {
+        const bar = 2;
+        const data = { bar };
+        expect(trackerA.computeBar(data)).to.eql({
+          bar: trackerA.DEFAULTS.BAR + bar,
+        });
+      });
+
+      it('should apply the default value for `bar`', () => {
+        expect(trackerA.computeBar()).to.eql({ bar: trackerA.DEFAULTS.BAR });
       });
     });
 

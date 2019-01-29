@@ -67,8 +67,9 @@ class TrackerA {
     this.log = [payload, ...this.log].slice(0, this.opts.maxLogLength || TrackerA.MAX_LOG_LENGTH);
   }
 
-  computeBar(data) {
-    return { bar: 'baz' };
+  computeBar(data = {}) {
+    const defaultBar = this.DEFAULTS.BAR;
+    return { bar: +data.bar ? defaultBar + (+data.bar) : defaultBar };
   }
 
   computeBaz(data) {
