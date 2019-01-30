@@ -188,7 +188,7 @@ describe('TrackerA', () => {
     });
 
     describe('doLog()', () => {
-      it('should add the payload to the `log`', () => {
+      it('should compute the payload to the `log`', () => {
         const payload = { foo: 'bar' };
 
         trackerA.doLog(payload);
@@ -231,27 +231,53 @@ describe('TrackerA', () => {
       });
     });
 
-    describe('addBar()', () => {
-      it('should return an object of the form: `{ bar: "baz" }`', () => {
-        expect(trackerA.addBar()).to.eql({ bar: 'baz' });
+    describe('computeBar()', () => {
+      it('should extract and apply `bar` from the data', () => {
+        const bar = 2;
+        const data = { bar };
+        expect(trackerA.computeBar(data)).to.eql({
+          bar: trackerA.DEFAULTS.BAR + bar,
+        });
+      });
+
+      it('should apply the default value for `bar`', () => {
+        expect(trackerA.computeBar()).to.eql({ bar: trackerA.DEFAULTS.BAR });
       });
     });
 
-    describe('addBaz()', () => {
+    describe('computeBaz()', () => {
       it('should return an object of the form: `{ baz: "quux" }`', () => {
-        expect(trackerA.addBaz()).to.eql({ baz: 'quux' });
+        expect(trackerA.computeBaz()).to.eql({ baz: 'quux' });
       });
     });
 
-    describe('addQuux()', () => {
+    describe('computeQuux()', () => {
       it('should return an object of the form: `{ quux: "foo" }`', () => {
-        expect(trackerA.addQuux()).to.eql({ quux: 'foo' });
+        expect(trackerA.computeQuux()).to.eql({ quux: 'foo' });
 
       });
     });
   });
 
   describe('Instance properties', () => {
+    let trackerA;
+
+    beforeEach(() => {
+      trackerA = new TrackerA();
+    });
+
+    describe('DEFAULTS', () => {
+      it('should be an object', () => {
+        expect(trackerA.DEFAULTS).to.be.a('object');
+      });
+
+      it('should contain defaults for: FOO; BAR; BAZ; QUUX', () => {
+        expect(trackerA.DEFAULTS.FOO).to.eq(1);
+        expect(trackerA.DEFAULTS.BAR).to.eq(2);
+        expect(trackerA.DEFAULTS.BAZ).to.eq(3);
+        expect(trackerA.DEFAULTS.QUUX).to.eq(4);
+      });
+    });
   });
 });
 

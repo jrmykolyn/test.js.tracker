@@ -5,6 +5,15 @@ class TrackerA {
     return 10;
   }
 
+  get DEFAULTS() {
+    return {
+      FOO: 1,
+      BAR: 2,
+      BAZ: 3,
+      QUUX: 4,
+    };
+  }
+
   constructor(service, opts = {}) {
     this.log = [];
     this.service = service;
@@ -19,9 +28,9 @@ class TrackerA {
 
     // TEMP: Expose augmentors.
     this.augmenters = {
-      addBar: this.addBar,
-      addBaz: this.addBaz,
-      addQuux: this.addQuux,
+      computeBar: this.computeBar.bind(this),
+      computeBaz: this.computeBaz.bind(this),
+      computeQuux: this.computeQuux.bind(this),
     };
 
     // Bind.
@@ -40,7 +49,7 @@ class TrackerA {
     };
   }
 
-  doAugment(data) {
+  doAugment(data = {}) {
     return (augmenters = []) => (payload) => {
       return {
         ...payload,
@@ -58,15 +67,16 @@ class TrackerA {
     this.log = [payload, ...this.log].slice(0, this.opts.maxLogLength || TrackerA.MAX_LOG_LENGTH);
   }
 
-  addBar(data) {
-    return { bar: 'baz' };
+  computeBar(data = {}) {
+    const defaultBar = this.DEFAULTS.BAR;
+    return { bar: +data.bar ? defaultBar + (+data.bar) : defaultBar };
   }
 
-  addBaz(data) {
+  computeBaz(data = {}) {
     return { baz: 'quux' };
   }
 
-  addQuux(data) {
+  computeQuux(data = {}) {
     return { quux: 'foo' };
   }
 }
